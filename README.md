@@ -1,31 +1,28 @@
-# Flask Static Pages
+# FSP
+or Flask-Static-Pages
+===
 
-This is a static page generator that allows you to write websites with markdown.
-This program uses flask and pandoc.
+This program is a really simple (and scuffed) static site generator written in python, which allows you to write websites with markdown.
 
 Dependencies:
-    - Flask
-    - pandoc
-`
-pip install flask
-pip install pypandoc_binary # This is only if you don't have pandoc installed!
-`
+- python
+- python-markdown `pip install markdown`
+- flask `pip install flask`
+- tomli `pip install tomli`
 
-File Structure:
-`
-├── build.sh
+This program uses jinja templating.
+
+Also, here's the file structure for an fsp project:
+```bash
+.
+├── config.toml # This is the config file
 ├── content
-│   ├── This is where the markdown goes!
+│   ├── index.md # This is where the markdown goes
 ├── main.py
 └── templates
-    ├── This is where the generated HTML for the sitde goes.
-`
+    └── base.html # This is where the template for the sites goes
+```
 
-Also, because this uses flask, you can use jinja templating inside of the markdown.
+TODO: add documentation
 
-TODO:
-    - Make this cross-compatible
-    - Fix formatting issues with markdown lists and codeblocks
-
-License:
-MIT
+License: MIT
