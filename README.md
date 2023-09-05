@@ -2,7 +2,7 @@
 or Flask-Static-Pages
 
 
-This program is a really simple (and scuffed) static site generator written in python, which allows you to write websites with markdown.
+This program is a really simple, small, and scuffed static site generator written in python, which allows you to write websites with markdown.
 
 Dependencies:
 - python
