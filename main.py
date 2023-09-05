@@ -50,7 +50,7 @@ def index():
 
     if md.Meta:
         if md.Meta['title']:
-            title = f"{fsp['site_title']} :: {md.Meta['title']}"
+            title = f"{fsp['site_title']} :: {md.Meta['title'][0]}"
         else:
             title = fsp['site_title']
     else:
@@ -79,7 +79,7 @@ def pages(webpage):
 
     if md.Meta:
         if md.Meta['title']:
-            title = f"{fsp['site_title']} :: {md.Meta['title']}"
+            title = f"{fsp['site_title']} :: {md.Meta['title'][0]}"
         else:
             title = fsp['site_title']
     else:
