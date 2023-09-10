@@ -68,17 +68,9 @@ def pages(webpage):
             base += l
 
     html_body = md.convert(md_text)
-
-    if md.Meta:
-        if md.Meta['title']:
-            title = f"{fsp['site_title']} :: {md.Meta['title'][0]}"
-        else:
-            title = fsp['site_title']
-    else:
-        title = fsp['site_title']
-
+ 
     try:
-        return jinja_env.from_string(base).render(title=title, body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
+        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
     except Exception as e:
         return f"There was an error: {e}"
 
