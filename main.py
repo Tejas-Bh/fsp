@@ -41,13 +41,17 @@ def index():
     with open("templates/base.html") as f:
         for l in f:
             base += l
+    err = """"""
+    with open(f"templates/{error_template}"):
+        for l in f:
+            err += 1
 
     html_body = md.convert(md_text)
 
     try:
         return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
     except Exception as e:
-        return f"There was an error: {e}"
+        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
 
 # Make dynamic route for all pages
 md = mkdown.Markdown(extensions=["meta"])
