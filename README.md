@@ -30,7 +30,8 @@ Also, here's the file structure for an fsp project:
 
 fsp sites are configured by the `config.toml` file.
 config.toml can be used in the templates.
-*Example config.toml file*:
+
+**Example config.toml file**:
 ```
 # title of the website
 site_title = "My website"
@@ -39,7 +40,8 @@ site_title = "My website"
 error_template = "error.html"
 ```
 The parameters from `config.toml` are can be accessed through the `fsp` variable.
-*Example config.toml usage in template*:
+
+**Example config.toml usage in template**:
 ```
 <!DOCTYPE html>
 <head>
