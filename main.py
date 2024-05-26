@@ -1,4 +1,3 @@
-import os
 import markdown as mkdown
 import jinja2
 import tomli
@@ -24,8 +23,7 @@ app = Flask(__name__)
 
 # using dynamic routes to go through all html in templates/ and make routes out of them
 
-html = os.listdir("templates/")
-
+print()
 
 # Make index route
 md = mkdown.Markdown(extensions=["meta"])
