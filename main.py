@@ -17,9 +17,6 @@ This program also uses markdown, meaning that it's really easy to make sites.
 with open("config.toml", mode="rb") as config:
     fsp = tomli.load(config)
 
-print(f"Starting {fsp['site_title']}")
-
-
 # Do the flask stuff
 from flask import Flask
 
