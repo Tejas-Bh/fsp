@@ -54,10 +54,10 @@ def index():
     html_body = md.convert(md_text)
 
     try:
-        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, url_for=url_for)
+        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
     except Exception as e:
         if error_template:
-            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, url_for=url_for)
+            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp)
         else:
             return f"ERROR: {e}"
 
@@ -81,17 +81,17 @@ def pages(webpage):
                 md_text += l
     except Exception as e:
         if error_template:
-            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, url_for=url_for)
+            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp)
         else:
             return f"ERROR: {e}"
 
     html_body = md.convert(md_text)
  
     try:
-        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, url_for=url_for)
+        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
     except Exception as e:
         if error_template:
-            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, url_for=url_for)
+            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp)
         else:
             return f"ERROR: {e}"
 
