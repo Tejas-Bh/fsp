@@ -50,7 +50,7 @@ The parameters from `config.toml` are can be accessed through the `fsp` variable
 ```
 
 ### Built-in parameters
-At the moment there's only one built-in parameter in the config file, called `error-template`.
+At the moment there's only one built-in parameter in the config file, called `error_template`.
 This file allows you to have a separate template for error pages, located in the `templates/` directory.
 ```toml
 # in config.toml
