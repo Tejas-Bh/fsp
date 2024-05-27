@@ -1,6 +1,7 @@
 import markdown as mkdown
 import jinja2
 import tomli
+from os import chdir, getcwd, system
 
 ######################################
 """
@@ -11,6 +12,9 @@ This program also uses markdown, meaning that it's really easy to make sites.
 """
 ######################################
 
+# Change the working directory to the user's directory
+chdir(getcwd())
+system("pwd;ls")
 
 # Load toml settings
 with open("config.toml", mode="rb") as config:
@@ -25,7 +29,11 @@ except:
 # Do the flask stuff
 from flask import Flask, url_for
 
-app = Flask(__name__)
+app = Flask(__name__, root_path=getcwd())
+
+# allow user to have static file in their markdown
+def static(file):
+    return url_for("static", filename=file)
 
 # using dynamic routes to go through all html in templates/ and make routes out of them
 
@@ -85,6 +93,7 @@ def pages(webpage):
         else:
             return f"ERROR: {e}"
 
+    md_text = jinja_env.from_string(md_text).render(fsp=fsp, static=static)
     html_body = md.convert(md_text)
  
     try:
