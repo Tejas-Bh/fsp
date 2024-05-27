@@ -32,7 +32,7 @@ fsp sites are configured by the `config.toml` file.
 config.toml can be used in the templates.
 
 **Example config.toml file**:
-```
+```toml
 # title of the website
 site_title = "My website"
 
@@ -42,7 +42,7 @@ error_template = "error.html"
 The parameters from `config.toml` are can be accessed through the `fsp` variable.
 
 **Example config.toml usage in template**:
-```
+```html
 <!DOCTYPE html>
 <head>
     <title>fsp["site_title"]</title>
@@ -52,8 +52,8 @@ The parameters from `config.toml` are can be accessed through the `fsp` variable
 ### Built-in parameters
 At the moment there's only one built-in parameter in the config file, called `error-template`.
 This file allows you to have a separate template for error pages, located in the `templates/` directory.
-```
-# config.toml
+```toml
+# in config.toml
 error_template = "error.html" # talking about templates/error.html
 ```
 
