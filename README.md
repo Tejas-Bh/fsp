@@ -49,6 +49,14 @@ The parameters from `config.toml` are can be accessed through the `fsp` variable
 </head>
 ```
 
+### Built-in parameters
+At the moment there's only one built-in parameter in the config file, called `error-template`.
+This file allows you to have a separate template for error pages, located in the `templates/` directory.
+```
+# config.toml
+error_template = "error.html" # talking about templates/error.html
+```
+
 TODO: add moar documentation
 
 License: MIT
