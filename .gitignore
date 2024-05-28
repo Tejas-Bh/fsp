@@ -2,3 +2,4 @@ config.toml
 content
 templates
 scripts.py
+__pycache__
