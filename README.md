@@ -23,7 +23,7 @@ Also, here's the file structure for an fsp project:
 │   ├── page3.md
 │   ├── page4.md
 │   └── page5.md
-├── main.py
+├── scripts.py
 ├── static
 │   ├── style.css
 │   └── pikachu.png # You can obviously have subfolders for different file types if you'd like!
