@@ -45,7 +45,7 @@ site_title = "My website"
 # error template html file in templates/
 error_template = "error.html"
 ```
-The parameters from `config.toml` are can be accessed through the `fsp` variable.
+The parameters from `config.toml` can be accessed through the `fsp` variable.
 
 **Example config.toml usage in template**:
 ```html
@@ -95,7 +95,6 @@ and then in your template, these can be accessed by:
 ```
 
 **md (object/only for templates)** - the rest of the information by using the markdown library if you want to use it
-TODO: add moar documentation
 
 **body (string/only for templates)** - **THE MOST IMPORTANT ONE!** this is the html which was converted from the markdown to use in templates.
 
@@ -110,5 +109,8 @@ TODO: add moar documentation
 </body>
 ```
 As you can see, you can access all of these by using double curly braces{{  }}.
+
+---
+TODO: add moar documentation
 
 License: MIT
