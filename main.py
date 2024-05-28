@@ -59,6 +59,7 @@ def index():
             for l in f:
                 err += l
 
+    md_text = jinja_env.from_string(md_text).render(fsp=fsp, static=static)
     html_body = md.convert(md_text)
 
     try:
