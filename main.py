@@ -1,7 +1,7 @@
 import markdown as mkdown
 import jinja2
 import tomli
-from os import chdir, getcwd, system
+from os import chdir, getcwd
 
 ######################################
 """
@@ -14,7 +14,6 @@ This program also uses markdown, meaning that it's really easy to make sites.
 
 # Change the working directory to the user's directory
 chdir(getcwd())
-system("pwd;ls")
 
 # Load toml settings
 with open("config.toml", mode="rb") as config:
