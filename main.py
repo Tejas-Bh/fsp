@@ -50,7 +50,7 @@ Meanwhile, here's the original error message:
 # Do the flask stuff
 from flask import Flask, url_for
 
-app = Flask(__name__, root_path=getcwd())
+app = Flask(__name__, root_path=getcwd(), static_url_path="")
 
 # allow user to have static file in their markdown
 def static(file):
