@@ -78,16 +78,29 @@ def index():
             for l in f:
                 err += l
 
-    md_text = jinja_env.from_string(md_text).render(fsp=fsp, static=static, scripts=scripts)
+    if scripts_usage:
+        md_text = jinja_env.from_string(md_text).render(fsp=fsp, static=static, scripts=scripts)
+    else:
+        md_text = jinja_env.from_string(md_text).render(fsp=fsp, static=static)
     html_body = md.convert(md_text)
 
-    try:
-        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
-    except Exception as e:
-        if error_template:
-            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
-        else:
-            return f"ERROR: {e}"
+    if scripts_usage:
+        try:
+            return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+        except Exception as e:
+            if error_template:
+                return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+            else:
+                return f"ERROR: {e}"
+    else:
+        try:
+            return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp)
+        except Exception as e:
+            if error_template:
+                return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp)
+            else:
+                return f"ERROR: {e}"
+
 
 # Make dynamic route for all pages
 md = mkdown.Markdown(extensions=["meta"])
@@ -103,26 +116,48 @@ def pages(webpage):
             for l in f:
                 err += l
     md_text = """"""
-    try:
-        with open(f"content/{webpage}.md") as f:
-            for l in f:
-                md_text += l
-    except Exception as e:
-        if error_template:
-            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
-        else:
-            return f"ERROR: {e}"
+    if scripts_usage:
+        try:
+            with open(f"content/{webpage}.md") as f:
+                for l in f:
+                    md_text += l
+        except Exception as e:
+            if error_template:
+                return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+            else:
+                return f"ERROR: {e}"
+    else:
+        try:
+            with open(f"content/{webpage}.md") as f:
+                for l in f:
+                    md_text += l
+        except Exception as e:
+            if error_template:
+                return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp)
+            else:
+                return f"ERROR: {e}"
+
 
     md_text = jinja_env.from_string(md_text).render(fsp=fsp, static=static, scripts=scripts)
     html_body = md.convert(md_text)
- 
-    try:
-        return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
-    except Exception as e:
-        if error_template:
-            return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
-        else:
-            return f"ERROR: {e}"
+
+    if scripts_usage:
+        try:
+            return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+        except Exception as e:
+            if error_template:
+                return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+            else:
+                return f"ERROR: {e}"
+    else:
+        try:
+            return jinja_env.from_string(base).render(body=html_body, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+        except Exception as e:
+            if error_template:
+                return jinja_env.from_string(err).render(body=e, md_metadata=md.Meta, md=md, fsp=fsp, scripts=scripts)
+            else:
+                return f"ERROR: {e}"
+
 
 if __name__ == "__main__":
     app.run()
