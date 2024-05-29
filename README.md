@@ -26,6 +26,7 @@ Also, here's the file structure for an fsp project:
 ├── scripts.py
 ├── static
 │   ├── style.css
+│   ├── robots.txt
 │   └── pikachu.png # You can obviously have subfolders for different file types if you'd like!
 └── templates
     ├── base.html
