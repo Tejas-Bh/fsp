@@ -51,7 +51,7 @@ The parameters from `config.toml` can be accessed through the `fsp` variable.
 ```html
 <!DOCTYPE html>
 <head>
-    <title>fsp["site_title"]</title>
+    <title>{{ fsp["site_title"] }}</title>
 </head>
 ```
 
