@@ -110,7 +110,43 @@ and then in your template, these can be accessed by:
 ```
 As you can see, you can access all of these by using double curly braces{{  }}.
 
+## Custom Scripts
+fsp has a feature for custom scripts that you can write which can be accessed in templates and markdown.
+These scripts are written in python.
+
+**Usage**
+
+To use custom scripts, first go to config.toml, and add:
+```toml
+scripts_usage = true
+```
+
+Then, make a ***scripts.py*** file in the root directory.
+The scripts.py file can be used anywhere in the md/html, via the `scripts` object.
+
+Example:
+```python
+# scripts.py
+def func():
+    print("Hello from func()!")
+```
+and in markdown or html, you can call func() by doing:
+```md
+This is a message from func():
+{{ scripts.func() }}
+```
+
+As you can see, any function or variable defined in scripts.py can be accessed.
+
+## Robots and sitemaps
+(note: i have literally no idea how these files work so i made these features based off of 5 minutes of googling, pls feel free to contribute!)
+
+To use a robots.txt and sitemap.xml, simply include them in the `static` folder in the root directory (the same one where the rest of the static files are stored), and fsp will take care.
+
 ---
+
+**PLEASE FEEL FREE TO REACH OUT AND CONTRIBUTE**
+
 TODO: add moar documentation
 
 License: MIT
