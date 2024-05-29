@@ -50,7 +50,7 @@ Meanwhile, here's the original error message:
 # Do the flask stuff
 from flask import Flask, url_for
 
-app = Flask(__name__, root_path=getcwd(), static_url_path="")
+app = Flask(__name__, root_path=getcwd())
 
 # allow user to have static file in their markdown
 def static(file):
@@ -106,6 +106,25 @@ def index():
 md = mkdown.Markdown(extensions=["meta"])
 @app.route("/<webpage>")
 def pages(webpage):
+    if webpage == "robots.txt":
+        try:
+            with open(getcwd()+"/static/robots.txt") as file:
+                robots = """"""
+                for l in file:
+                    robots += l
+                return robots
+        except:
+            pass
+    if webpage == "sitemap.xml":
+        try:
+            with open(getcwd()+"/static/sitemap.xml") as file:
+                sitemap = """"""
+                for l in file:
+                    sitemap += l
+                return sitemap
+        except:
+            pass
+
     base = """"""
     with open("templates/base.html") as f:
         for l in f:
