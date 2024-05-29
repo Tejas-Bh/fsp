@@ -1,8 +1,14 @@
-# FSP
-or Flask-Static-Pages
+<h1 align="center"><b>fsp</b></h1>
+fsp stands for flask static pages.
 
+It's a versatile, small, simple, slightly stubborn, and scuffed site generator written in python.
 
-This program is a really simple, small, and scuffed static site generator written in python, which allows you to write websites with markdown.
+fsp can be used to write websites with markdown, without having to write **too much** html.
+<hr />
+
+**note: this is still in beta. lots of changes will be made. please help contribute to this!**
+
+*another note: an official release isn't out yet. For development purposes, I've been just adding main.py to my env/libs/python/site-packages folder in a folder called fsp, with \_\_init.py\_\_ and \_\_main.py\_\_ linking to the main.py file.*
 
 Dependencies:
 - python
@@ -10,9 +16,9 @@ Dependencies:
 - flask `pip install flask`
 - tomli `pip install tomli`
 
-This program uses jinja templating.
+## The Basics
 
-Also, here's the file structure for an fsp project:
+here's the file structure for an fsp project:
 ```bash
 .
 ├── config.toml
@@ -33,6 +39,8 @@ Also, here's the file structure for an fsp project:
     └── error.html
 ```
 
+to run an fsp app, simply run the fsp program from the root directory of your app.
+
 ## Configuration
 
 fsp sites are configured by the `config.toml` file.
@@ -45,6 +53,9 @@ site_title = "My website"
 
 # error template html file in templates/
 error_template = "error.html"
+
+# am I using scripts? yes.
+scripts_usage = true
 ```
 The parameters from `config.toml` can be accessed through the `fsp` variable.
 
