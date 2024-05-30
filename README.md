@@ -8,13 +8,74 @@ fsp can be used to write websites with markdown, without having to write **too m
 
 **note: this is still in beta. lots of changes will be made. please help contribute to this!**
 
-*another note: an official release isn't out yet. For development purposes, I've been just adding main.py to my env/libs/python/site-packages folder in a folder called fsp, with \_\_init.py\_\_ and \_\_main.py\_\_ linking to the main.py file.*
+*another note: an official release isn't out yet. For development purposes, I've been just adding main.py to my env/libs/python/site-packages (in a virtual environment) folder in a folder called fsp, with \_\_init.py\_\_ and \_\_main.py\_\_ linking to the main.py file.*
 
 Dependencies:
 - python
 - python-markdown `pip install markdown`
 - flask `pip install flask`
 - tomli `pip install tomli`
+
+## Installation / Deployment
+fsp doesn't officially have a package yet as I'm still working on this (pls contribute pls) and will be making lots of more changes, I think.
+
+But, if you'd like to check it out, these are the steps that I'd take:
+
+Note: This is assuming that you can make python virtual environments and have git.
+
+First, I'd make a virtual environment, and activate it.
+
+Linux:
+```bash
+python3 -m venv env
+source ./env/bin/activate
+```
+
+Windows (powershell):
+```powershell
+python -m venv env
+./env/Scripts/Activate.ps1
+```
+
+
+Then, I'd pull this project from github.
+
+```bash
+git init
+git pull https://github.com/Tejas-Bh/fsp.git
+```
+
+Then, I'd install the things from earlier in this README or from requirements.txt.
+
+Then, I'd do something weird. I'd go in the virtual environment directory (in my case it'd be `env`), and i'd go inside the lib folder, I'd find the site-packages directory.
+
+Then, I'd make a new folder: `fsp`
+
+Then, go inside of it, and make a symbolic link for an \_\_init\_\_.py \_\_main\_\_.py to main.py in the root directory (where you pulled this project).
+
+Then, I'd continuously git pull every so often since before official release is out, there wil be a lot of changes.
+
+example for linux:
+```bash
+pip install -r requirements.txt
+cd env/lib/python*/site-packages/
+mkdir fsp
+cd fsp
+ln -s ../../../../../main.py ./__init__.py
+ln -s ../../../../../main.py ./__main__.py
+```
+
+That's it!
+
+Now, all you have to do to use fsp, is to activate the virtual environment, and do python3 -m fsp in the root directory of your project! (for development server)
+
+If you want to use it in a proper WSGI server like `gunicorn` or `waitress` for whatever reason (deployment, or just for fun), you can simply do:
+```bash
+gunicorn fsp:app
+```
+in the root directory :)
+
+And, if you ever need to import the app (again, usually for deployment purposes), simply do `from fsp import app`.
 
 ## The Basics
 
