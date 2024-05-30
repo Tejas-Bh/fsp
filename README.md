@@ -4,6 +4,8 @@ fsp stands for flask static pages.
 It's a versatile, small, simple, slightly stubborn, and scuffed site generator written in python.
 
 fsp can be used to write websites with markdown, without having to write **too much** html.
+
+![Version: Beta, no official release yet](https://img.shields.io/badge/version-beta%2C_no_official_release_yet-blue)
 <hr />
 
 **note: this is still in beta. lots of changes will be made. please help contribute to this!**
