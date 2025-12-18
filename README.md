@@ -1,7 +1,7 @@
 <h1 align="center"><b>fsp</b></h1>
-fsp stands for flask static pages.
+fsp stands for flask static pages, although it's grown to more than that.
 
-It's a versatile, small, simple, slightly stubborn, and scuffed site generator written in python.
+It's a versatile, small, simple, and slightly stubborn, and site generator written in python.
 
 fsp can be used to write websites with markdown, without having to write **too much** html.
 
