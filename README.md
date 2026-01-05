@@ -21,7 +21,7 @@ Dependencies:
 - tomli `pip install tomli`
 
 ## Installation / Deployment
-fsp doesn't officially have a package yet as I'm still working on this (pls contribute pls) and will be making lots of more changes, I think.
+fsp doesn't officially have a package yet as I'm still working on this and will be making lots of more changes, I think.
 
 But, if you'd like to check it out, you can do one of two things:
 
@@ -247,7 +247,6 @@ This is a message from func():
 As you can see, any function or variable defined in scripts.py can be accessed.
 
 ## Robots and sitemaps
-(note: i have literally no idea how these files work so i made these features based off of 5 minutes of googling, pls feel free to contribute!)
 
 To use a robots.txt and sitemap.xml, simply include them in the `static` folder in the root directory (the same one where the rest of the static files are stored), and fsp will take care.
 
