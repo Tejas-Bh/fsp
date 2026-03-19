@@ -155,12 +155,13 @@ The parameters from `config.toml` can be accessed through the `fsp` variable.
 ```
 
 ### Built-in parameters
-At the moment there's only one built-in parameter in the config file, called `error_template`.
-This file allows you to have a separate template for error pages, located in the `templates/` directory.
+There are two built-in parameters in the config file: `error_template` and `scripts_usage`.
+**`error_template`** is a string, and allows you to have a separate template for error pages, located in the `templates/` directory.
 ```toml
 # in config.toml
 error_template = "error.html" # talking about templates/error.html
 ```
+**`scripts_usage`** is a boolean, and asks whether scripts.py needs to be checked. Defaults to `false`.
 
 ## Built-in Functions and tools
 These are functions and variables which you can use in your markdown and html templates.
